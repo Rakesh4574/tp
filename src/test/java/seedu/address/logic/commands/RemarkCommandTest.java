@@ -13,8 +13,6 @@ import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.Messages;
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.RemarkCommand;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -56,6 +54,7 @@ public class RemarkCommandTest {
                 Messages.format(personCleared));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(personToRemark, personWithRemark);
         expectedModel.setPerson(personWithRemark, personCleared);
         expectedModel.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
 
